@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC, useCallback, useState} from 'react';
+import {Layout} from "components/layouts";
+import {SearchField} from "components/organisms";
+import {Hotels} from "./types/hotels";
 
-function App() {
+const App: FC = () => {
+  const [hotels, setHotels] = useState<Hotels>([])
+
+  const handleHotels = useCallback((fetchedHotels: Hotels) => {
+    setHotels([...fetchedHotels])
+  }, [setHotels])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <SearchField
+        handleHotels={handleHotels}
+      />
+    </Layout>
   );
 }
 

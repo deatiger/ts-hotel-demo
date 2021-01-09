@@ -1,0 +1,10 @@
+.flex {
+  &__row {
+    display: flex;
+    flex-flow: row nowrap;
+    &_center {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

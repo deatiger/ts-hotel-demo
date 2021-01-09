@@ -1,0 +1,15 @@
+.button {
+  border: none;
+  font-size: 14px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+
+  &__search {
+    @extend .button;
+    background: #00BAEF;
+    color: #fff;
+    max-width: 64px;
+    width: 100%;
+  }
+}
