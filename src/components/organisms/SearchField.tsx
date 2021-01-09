@@ -24,7 +24,10 @@ const SearchField: FC<Props> = (props) => {
       />
       <SearchButton
         label={"Search"}
-        onClick={() => searchHotels(keyword, handleHotels)}
+        onClick={async () => {
+          const hotels = await searchHotels(keyword)
+          handleHotels([...hotels])
+        }}
       />
     </div>
   );
